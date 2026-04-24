@@ -38,3 +38,36 @@
       color 0.3s ease;
   }
 }
+/* Animación de carrusel infinito */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* Se desplaza exactamente la mitad */
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite; /* Más lento para que sea elegante */
+}
+
+.pause-on-hover:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.direction-reverse {
+  animation-direction: reverse;
+}
+
+/* Para que los logos se vean nítidos */
+.tech-logo {
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.05));
+  transition: all 0.3s ease;
+}
+
+.dark .tech-logo {
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.1));
+}

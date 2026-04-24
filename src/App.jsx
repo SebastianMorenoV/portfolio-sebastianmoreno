@@ -1,13 +1,17 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next"; // <-- 1. Importamos el hook
 import MainLayout from "./components/layout/MainLayout";
 import ParticleNetwork from "./components/common/ParticleNetwork";
 import profilePic from "./assets/profilePicture.jpg";
+import GraphicSkills from "./components/common/GraphicSkills";
 
 function App() {
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   const [isHoveringSection, setIsHoveringSection] = useState(false);
   const [isHoveringText, setIsHoveringText] = useState(false);
   const textRef = useRef(null);
+
+  const { t } = useTranslation(); // <-- 2. Inicializamos la traducción
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -60,7 +64,7 @@ function App() {
           {/* Badge de disponibilidad */}
           <div className="absolute -bottom-4 -right-4 bg-background px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            En Busca de Practicas
+            {t("hero.badge")} {/* <-- TEXTO TRADUCIDO */}
           </div>
         </div>
 
@@ -76,14 +80,12 @@ function App() {
             <div className="text-content transition-opacity duration-300">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-4 text-primary font-semibold tracking-wide uppercase text-sm">
                 <MapPinIcon />
-                <span>Sonora, México</span>
+                <span>{t("hero.location")}</span> {/* <-- TEXTO TRADUCIDO */}
               </div>
               <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">Sebastian Moreno</h1>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Full-Stack Software Engineer</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("hero.role")}</h2> {/* <-- TEXTO TRADUCIDO */}
               <p className="text-lg mb-6 leading-relaxed">
-                Especializado en diseñar y construir plataformas web escalables, arquitecturas de microservicios y
-                sistemas inteligentes. Transformando requerimientos complejos en código limpio y eficiente con React,
-                Spring Boot y Python.
+                {t("hero.bioStart")} Spring Boot {t("hero.bioEnd")} {/* <-- TEXTO TRADUCIDO */}
               </p>
             </div>
 
@@ -97,34 +99,23 @@ function App() {
                 opacity: isHoveringText ? 1 : 0,
                 transition: "opacity 0.2s ease",
               }}>
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-4 text-primary font-bold tracking-wide uppercase text-sm">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-4 text-primary font-semibold tracking-wide uppercase text-sm">
                 <MapPinIcon />
-                <span>Sonora, México</span>
+                <span>{t("hero.location")}</span> {/* <-- TEXTO TRADUCIDO */}
               </div>
               <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight text-primary">Sebastian Moreno</h1>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-content">Full-Stack Software Engineer</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-content">{t("hero.role")}</h2>{" "}
+              {/* <-- TEXTO TRADUCIDO */}
               <p className="text-lg mb-6 leading-relaxed text-content drop-shadow-md">
-                Especializado en diseñar y construir plataformas web escalables, arquitecturas de microservicios y
-                sistemas inteligentes. Transformando requerimientos complejos en código limpio y eficiente con React,
-                Spring Boot y Python.
+                {t("hero.bioStart")}
+                <div className="inline text-green-400">Spring Boot</div>
+                {t("hero.bioEnd")} {/* <-- TEXTO TRADUCIDO */}
               </p>
             </div>
           </div>
 
           {/* Elementos Interactivos */}
           <div className="flex flex-col sm:flex-row items-center gap-6 mt-4 relative z-20 cursor-auto">
-            {/*<div className="flex gap-4">
-              <button className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-all shadow-lg hover:-translate-y-1">
-                Ver Proyectos
-              </button>
-              <a
-                href="/CV_Sebastian_Moreno.pdf"
-                download="CV_Sebastian_Moreno.pdf"
-                className="px-6 py-3 bg-surface text-content font-bold rounded-lg border border-content-muted/30 hover:border-primary transition-all hover:-translate-y-1 flex items-center justify-center">
-                Descargar CV
-              </a>
-            </div>*/}
-
             <div className="flex items-center gap-4 text-content-muted">
               <a
                 href="https://github.com/SebastianMorenoV"
@@ -150,15 +141,12 @@ function App() {
         </div>
       </section>
       {/* --- FIN DE LA ZONA MAGICA --- */}
-
-      <section className="mt-20 max-w-4xl mx-auto px-8">
-        <h2 className="text-3xl font-bold text-center mb-10">Skills & Tecnologías</h2>
-      </section>
+      <GraphicSkills></GraphicSkills>
     </MainLayout>
   );
 }
 
-// --- ICONOS NATIVOS SVG (Cero dependencias) ---
+// --- ICONOS NATIVOS SVG (Mismo código que ya tenías) ---
 function GithubIcon() {
   return (
     <svg
@@ -176,7 +164,6 @@ function GithubIcon() {
     </svg>
   );
 }
-
 function LinkedinIcon() {
   return (
     <svg
@@ -195,7 +182,6 @@ function LinkedinIcon() {
     </svg>
   );
 }
-
 function MailIcon() {
   return (
     <svg
@@ -213,7 +199,6 @@ function MailIcon() {
     </svg>
   );
 }
-
 function MapPinIcon() {
   return (
     <svg
