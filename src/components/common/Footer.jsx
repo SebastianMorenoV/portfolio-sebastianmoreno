@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -38,9 +39,9 @@ const Footer = () => {
 
           <div className="flex flex-col gap-4 text-center md:text-right text-content-muted">
             <p className="font-semibold text-content">{t('footer.navTitle')}</p>
-            <a href="/portfolio-sebastianmoreno/" className="hover:text-primary transition-colors">{t('nav.home')}</a>
-            <a href="/portfolio-sebastianmoreno/posts" className="hover:text-primary transition-colors">{t('nav.posts')}</a>
-            <a href="/portfolio-sebastianmoreno/about" className="hover:text-primary transition-colors">{t('nav.about')}</a>
+            <Link to="/" className="hover:text-primary transition-colors">{t('nav.home')}</Link>
+            <Link to="/posts" className="hover:text-primary transition-colors">{t('nav.posts')}</Link>
+            <Link to="/about" className="hover:text-primary transition-colors">{t('nav.about')}</Link>
           </div>
 
         </div>
