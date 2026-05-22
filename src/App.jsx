@@ -1,17 +1,28 @@
 import { useState, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next"; // <-- 1. Importamos el hook
+import { useTranslation } from "react-i18next";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { MessageCircle } from "lucide-react";
 import MainLayout from "./components/layout/MainLayout";
 import ParticleNetwork from "./components/common/ParticleNetwork";
 import profilePic from "./assets/profilePicture.jpg";
 import GraphicSkills from "./components/common/GraphicSkills";
+import Projects from "./components/common/Projects";
+import Experience from "./components/common/Experience";
+import Posts from "./components/common/Posts";
+import About from "./components/common/About";
+import Services from "./components/common/Services";
+import { useProfile, useLocalized } from "./hooks/useSanity";
 
-function App() {
+// We extract the Home page content into a separate component
+function Home() {
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
   const [isHoveringSection, setIsHoveringSection] = useState(false);
   const [isHoveringText, setIsHoveringText] = useState(false);
   const textRef = useRef(null);
 
-  const { t } = useTranslation(); // <-- 2. Inicializamos la traducción
+  const { t, i18n } = useTranslation();
+  const { profile } = useProfile();
+  const localize = useLocalized();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -33,10 +44,10 @@ function App() {
   const relPos = getRelativePos();
 
   return (
-    <MainLayout>
+    <>
       {/* 1. El Cursor Personalizado */}
       <div
-        className="fixed top-0 left-0 pointer-events-none z-50 rounded-full transition-all duration-200 ease-out flex items-center justify-center"
+        className="fixed top-0 left-0 pointer-events-none z-50 rounded-full transition-all duration-200 ease-out flex items-center justify-center hidden lg:flex"
         style={{
           transform: `translate(${mousePos.x}px, ${mousePos.y}px) translate(-50%, -50%)`,
           width: isHoveringText ? "180px" : "12px",
@@ -62,9 +73,9 @@ function App() {
             className="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-surface"
           />
           {/* Badge de disponibilidad */}
-          <div className="absolute -bottom-4 -right-4 bg-background px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            {t("hero.badge")} {/* <-- TEXTO TRADUCIDO */}
+          <div className="absolute -bottom-4 -right-4 bg-background px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg z-20 transition-transform hover:scale-105 cursor-default border border-content/10">
+            <span className={`w-2 h-2 rounded-full ${profile?.statusColor || 'bg-green-500'} animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]`}></span>
+            {profile?.workStatus || t("hero.badge")}
           </div>
         </div>
 
@@ -83,9 +94,9 @@ function App() {
                 <span>{t("hero.location")}</span> {/* <-- TEXTO TRADUCIDO */}
               </div>
               <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">Sebastian Moreno</h1>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("hero.role")}</h2> {/* <-- TEXTO TRADUCIDO */}
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-content to-content-muted">{t("hero.role")}</h2>
               <p className="text-lg mb-6 leading-relaxed">
-                {t("hero.bioStart")} Spring Boot {t("hero.bioEnd")} {/* <-- TEXTO TRADUCIDO */}
+                {localize(profile?.bioStart) || t("hero.bioStart")} {localize(profile?.bioHighlight) || "Spring Boot"} {localize(profile?.bioEnd) || t("hero.bioEnd")}
               </p>
             </div>
 
@@ -104,12 +115,9 @@ function App() {
                 <span>{t("hero.location")}</span> {/* <-- TEXTO TRADUCIDO */}
               </div>
               <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight text-primary">Sebastian Moreno</h1>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-content">{t("hero.role")}</h2>{" "}
-              {/* <-- TEXTO TRADUCIDO */}
-              <p className="text-lg mb-6 leading-relaxed text-content drop-shadow-md">
-                {t("hero.bioStart")}
-                <div className="inline text-green-400">Spring Boot</div>
-                {t("hero.bioEnd")} {/* <-- TEXTO TRADUCIDO */}
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-content bg-clip-text text-transparent bg-gradient-to-r from-content to-content-muted">{t("hero.role")}</h2>
+              <p className="text-lg mb-6 leading-relaxed text-blue-500 drop-shadow-md transition-colors duration-300">
+                {localize(profile?.bioStart) || t("hero.bioStart")} {localize(profile?.bioHighlight) || "Spring Boot"} {localize(profile?.bioEnd) || t("hero.bioEnd")}
               </p>
             </div>
           </div>
@@ -132,17 +140,51 @@ function App() {
                 <LinkedinIcon />
               </a>
               <a
-                href="mailto:moreno.sebastian.cb37@gmail.com"
-                className="hover:text-primary transition-colors p-2 hover:bg-surface rounded-full">
-                <MailIcon />
+                href={profile?.whatsapp 
+                  ? `https://wa.me/${profile.whatsapp}` 
+                  : `https://wa.me/526441901249?text=${encodeURIComponent(
+                      i18n.language.startsWith('es') ? 'Hola Sebastian, ¿Cómo estás?' : 'Hi Sebastian, How are you doing?'
+                    )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 bg-surface text-content hover:bg-green-500/10 hover:text-green-500 transition-colors px-6 py-2.5 rounded-full font-bold border border-content/20 hover:border-green-500/50">
+                <MessageCircle size={20} />
+                <span>{t('hero.contactBtn')}</span>
               </a>
             </div>
           </div>
         </div>
       </section>
       {/* --- FIN DE LA ZONA MAGICA --- */}
-      <GraphicSkills></GraphicSkills>
-    </MainLayout>
+      <Services />
+      <Projects />
+      <Experience />
+      <GraphicSkills />
+    </>
+  );
+}
+
+// ScrollToTop Helper
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function App() {
+  return (
+    <Router basename="/portfolio-sebastianmoreno">
+      <ScrollToTop />
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </MainLayout>
+    </Router>
   );
 }
 

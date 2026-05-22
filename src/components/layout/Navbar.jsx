@@ -1,6 +1,7 @@
 import { Sun, Moon, Languages } from "lucide-react";
 import { useTheme } from "../../hooks/useTheme";
-import { useTranslation } from "react-i18next"; // 1. Import the hook
+import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -12,11 +13,12 @@ export default function Navbar() {
     i18n.changeLanguage(newLang);
   };
 
+  const location = useLocation();
+
   const navLinks = [
-    { label: t("nav.home"), href: "#" },
-    { label: t("nav.posts"), href: "#" },
-    { label: t("nav.projects"), href: "#" },
-    { label: t("nav.about"), href: "#" },
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.posts"), href: "/posts" },
+    { label: t("nav.about"), href: "/about" },
   ];
 
   const isDark = theme === "dark";
@@ -33,12 +35,16 @@ export default function Navbar() {
           {/* Nav Links */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
-                className={`font-medium text-sm transition-colors ${isDark ? "text-white hover:text-blue-400" : "text-black hover:text-blue-500"}`}>
+                to={link.href}
+                className={`font-medium text-sm transition-colors ${
+                  location.pathname === link.href 
+                    ? "text-primary" 
+                    : isDark ? "text-white hover:text-primary" : "text-black hover:text-primary"
+                }`}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 

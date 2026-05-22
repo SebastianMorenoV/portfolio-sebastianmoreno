@@ -4,7 +4,10 @@ export function useTheme() {
   // Initialize state based on localStorage or default to 'light'
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme) return storedTheme;
+      
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     return "light";
   });

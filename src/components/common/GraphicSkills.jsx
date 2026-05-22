@@ -75,13 +75,14 @@ export default function GraphicSkills() {
           src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg",
         },
         { name: "Vite", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
-        { name: "Postman", src: " https://www.svgrepo.com/show/354202/postman-icon.svg" },
+        { name: "Postman", src: "https://www.svgrepo.com/show/354202/postman-icon.svg" },
+        { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
       ],
     },
   ];
 
   return (
-    <section className="mt-12 max-w-6xl mx-auto px-6 relative z-10">
+    <section className="mt-12 max-w-6xl mx-auto px-6">
       {/* 1. SECCIÓN RESTRINGIDA A max-w-6xl PARA ALINEARSE CON APP.JSX */}
 
       {/* Título Principal */}
@@ -101,31 +102,89 @@ export default function GraphicSkills() {
               </span>
             </div>
 
-            {/* 3. CARRIL ENCAPSULADO CON BORDES REDONDEADOS */}
-            <div className="relative flex w-full overflow-hidden rounded-2xl bg-white py-4">
+            {/* 3. CARRIL ENCAPSULADO TRANSPARENTE */}
+            <div className="relative flex w-full overflow-hidden py-6">
               <div
-                className={`animate-marquee flex gap-16 md:gap-24 items-center px-4 ${lane.direction === "reverse" ? "direction-reverse" : ""}`}
+                className={`animate-marquee flex gap-8 md:gap-16 items-center px-4 ${lane.direction === "reverse" ? "direction-reverse" : ""}`}
                 style={{ animationDuration: lane.speed }}>
-                {/* Repetimos 4 veces para asegurar que llene cualquier pantalla sin vacíos */}
-                {[...lane.skills, ...lane.skills, ...lane.skills, ...lane.skills].map((skill, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-4 md:gap-5 flex-shrink-0 transition-all duration-500 hover:scale-125">
-                    <img
-                      src={skill.src}
-                      alt={skill.name}
-                      className="w-12 h-12 md:w-16 md:h-16 object-contain tech-logo"
-                    />
-                    <span className="text-sm font-black tracking-tight opacity-40 group-hover:opacity-80 transition-opacity">
-                      {skill.name}
-                    </span>
-                  </div>
-                ))}
+                
+                {/* Bloque 1 */}
+                <div className="flex gap-8 md:gap-16 items-center flex-shrink-0">
+                  {lane.skills.map((skill, index) => (
+                    <div
+                      key={`b1-${index}`}
+                      className="flex items-center gap-3 md:gap-4 flex-shrink-0 transition-all duration-500 hover:scale-110">
+                      <img
+                        src={skill.src}
+                        alt={skill.name}
+                        className="w-10 h-10 md:w-14 md:h-14 object-contain tech-logo"
+                      />
+                      <span className="text-sm font-bold tracking-tight opacity-40 group-hover:opacity-80 transition-opacity">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bloque 2 (Duplicado exacto para loop infinito) */}
+                <div className="flex gap-8 md:gap-16 items-center flex-shrink-0">
+                  {lane.skills.map((skill, index) => (
+                    <div
+                      key={`b2-${index}`}
+                      className="flex items-center gap-3 md:gap-4 flex-shrink-0 transition-all duration-500 hover:scale-110">
+                      <img
+                        src={skill.src}
+                        alt={skill.name}
+                        className="w-10 h-10 md:w-14 md:h-14 object-contain tech-logo"
+                      />
+                      <span className="text-sm font-bold tracking-tight opacity-40 group-hover:opacity-80 transition-opacity">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Bloque 3 (Duplicado exacto para resoluciones extremas) */}
+                <div className="flex gap-8 md:gap-16 items-center flex-shrink-0">
+                  {lane.skills.map((skill, index) => (
+                    <div
+                      key={`b3-${index}`}
+                      className="flex items-center gap-3 md:gap-4 flex-shrink-0 transition-all duration-500 hover:scale-110">
+                      <img
+                        src={skill.src}
+                        alt={skill.name}
+                        className="w-10 h-10 md:w-14 md:h-14 object-contain tech-logo"
+                      />
+                      <span className="text-sm font-bold tracking-tight opacity-40 group-hover:opacity-80 transition-opacity">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Bloque 4 (Duplicado exacto para resoluciones extremas) */}
+                <div className="flex gap-8 md:gap-16 items-center flex-shrink-0">
+                  {lane.skills.map((skill, index) => (
+                    <div
+                      key={`b4-${index}`}
+                      className="flex items-center gap-3 md:gap-4 flex-shrink-0 transition-all duration-500 hover:scale-110">
+                      <img
+                        src={skill.src}
+                        alt={skill.name}
+                        className="w-10 h-10 md:w-14 md:h-14 object-contain tech-logo"
+                      />
+                      <span className="text-sm font-bold tracking-tight opacity-40 group-hover:opacity-80 transition-opacity">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
               </div>
 
               {/* 4. DEGRADADOS ADAPTADOS AL NUEVO CONTENEDOR */}
-              <div className="absolute inset-y-0 left-0 w-20 md:w-32 bg-gradient-to-r from-background via-background/70 to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-background via-background/70 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
             </div>
           </div>
         ))}
