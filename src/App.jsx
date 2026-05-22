@@ -201,7 +201,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/portfolio-sebastianmoreno">
+    <Router>
       <ScrollToTop />
       <MainLayout>
         <Routes>
