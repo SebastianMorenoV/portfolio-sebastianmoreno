@@ -174,6 +174,32 @@ const ScrollToTop = () => {
 }
 
 function App() {
+  useEffect(() => {
+    // Solo enviamos la notificación una vez por sesión para no saturar tu correo
+    if (!sessionStorage.getItem("portfolio_visited")) {
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "865afbef-c6fb-4f95-adb4-dc0ebe7115a9", 
+          subject: "👀 ¡Alguien está viendo tu portafolio!",
+          from_name: "Notificación Portafolio",
+          message: "Un nuevo usuario ha entrado a ver tu portafolio en este momento.",
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            sessionStorage.setItem("portfolio_visited", "true");
+          }
+        })
+        .catch((error) => console.error("Error al enviar notificación:", error));
+    }
+  }, []);
+
   return (
     <Router basename="/portfolio-sebastianmoreno">
       <ScrollToTop />
