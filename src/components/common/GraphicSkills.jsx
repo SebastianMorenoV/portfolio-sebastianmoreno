@@ -8,51 +8,87 @@ export default function GraphicSkills() {
       id: "languages",
       title: "Lenguajes",
       direction: "normal",
-      speed: "15s",
+      speed: "25s",
       skills: [
-        { name: "C+", src: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" },
         { name: "Java", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
         { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
         {
           name: "JavaScript",
           src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
         },
+        {
+          name: "TypeScript",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+        },
+        {
+          name: "C++",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+        },
         { name: "Kotlin", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" },
+        { name: "Dart", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" },
       ],
     },
     {
       id: "frameworks",
       title: "Frameworks & Libs",
       direction: "reverse",
-      speed: "15s",
+      speed: "30s",
       skills: [
         {
           name: "Spring Boot",
           src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
         },
         { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-        { name: "OpenCV", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" },
         {
-          name: "JavaFX",
-          src: "https://upload.wikimedia.org/wikipedia/en/c/cc/JavaFX_Logo.png",
+          name: "Node.js",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
         },
+        {
+          name: "Django",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
+        },
+        {
+          name: "FastAPI",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+        },
+        {
+          name: "Flutter",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
+        },
+        {
+          name: "TailwindCSS",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+        },
+        { name: "OpenCV", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" },
         { name: "JWT", src: "https://jwt.io/img/pic_logo.svg" },
       ],
     },
     {
       id: "databases",
-      title: "Bases de Datos",
+      title: "Bases de Datos & Almacenamiento",
       direction: "normal",
-      speed: "15s",
+      speed: "25s",
       skills: [
         { name: "MySQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+        {
+          name: "PostgreSQL",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+        },
         {
           name: "MongoDB",
           src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
         },
         {
+          name: "Redis",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
+        },
+        {
+          name: "Firebase",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",
+        },
+        {
           name: "AWS RDS",
-          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+          src: "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/1/aws-rds-5qblz3nvfjmipvbykjpba.png/aws-rds-o6rtmustsgv3emnpozj4.png?_a=DATAiZAAZAA0",
         },
       ],
     },
@@ -60,23 +96,72 @@ export default function GraphicSkills() {
       id: "devops",
       title: "Tools & DevOps",
       direction: "reverse",
-      speed: "15s",
+      speed: "40s",
       skills: [
+        {
+          name: "Linux",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
+        },
+        {
+          name: "Git",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+        },
+        {
+          name: "Docker",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+        },
+        {
+          name: "Nginx",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg",
+        },
+        {
+          name: "Google Cloud",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
+        },
+        {
+          name: "AWS EC2",
+          src: "https://files.svgcdn.io/logos/aws-ec2.svg",
+        },
+        {
+          name: "AWS Lambda",
+          src: "https://files.svgcdn.io/logos/aws-lambda.svg",
+        },
         {
           name: "AWS S3",
           src: "https://cdn.worldvectorlogo.com/logos/amazon-s3-simple-storage-service.svg",
         },
         {
-          name: "EC2",
-          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
+          name: "Envoy Proxy",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/envoy/envoy-original.svg",
         },
         {
           name: "RabbitMQ",
           src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg",
         },
-        { name: "Vite", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
-        { name: "Postman", src: "https://www.svgrepo.com/show/354202/postman-icon.svg" },
-        { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+        {
+          name: "SonarQube",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg",
+        },
+        {
+          name: "Nexus",
+          src: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_of_Sonatype_Nexus_Repository.svg",
+        },
+        {
+          name: "Stripe",
+          src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/3840px-Stripe_Logo%2C_revised_2016.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
+        },
+        {
+          name: "Twilio",
+          src: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg",
+        },
+        {
+          name: "Postman",
+          src: "https://www.svgrepo.com/show/354202/postman-icon.svg",
+        },
+        {
+          name: "Vite",
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+        },
       ],
     },
   ];
@@ -107,7 +192,6 @@ export default function GraphicSkills() {
               <div
                 className={`animate-marquee flex gap-8 md:gap-16 items-center px-4 ${lane.direction === "reverse" ? "direction-reverse" : ""}`}
                 style={{ animationDuration: lane.speed }}>
-                
                 {/* Bloque 1 */}
                 <div className="flex gap-8 md:gap-16 items-center flex-shrink-0">
                   {lane.skills.map((skill, index) => (
@@ -143,7 +227,7 @@ export default function GraphicSkills() {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Bloque 3 (Duplicado exacto para resoluciones extremas) */}
                 <div className="flex gap-8 md:gap-16 items-center flex-shrink-0">
                   {lane.skills.map((skill, index) => (
@@ -161,7 +245,7 @@ export default function GraphicSkills() {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Bloque 4 (Duplicado exacto para resoluciones extremas) */}
                 <div className="flex gap-8 md:gap-16 items-center flex-shrink-0">
                   {lane.skills.map((skill, index) => (
@@ -179,7 +263,6 @@ export default function GraphicSkills() {
                     </div>
                   ))}
                 </div>
-
               </div>
 
               {/* 4. DEGRADADOS ADAPTADOS AL NUEVO CONTENEDOR */}

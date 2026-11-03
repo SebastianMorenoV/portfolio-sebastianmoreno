@@ -17,7 +17,6 @@ export default function ParticleNetwork() {
     resize();
 
     // Inicializar los puntitos
-    //Puto el que lo lea
     const initParticles = () => {
       particles = [];
       const particleCount = Math.floor((canvas.width * canvas.height) / 8000);

@@ -75,7 +75,7 @@ function Home() {
           {/* Badge de disponibilidad */}
           <div className="absolute -bottom-4 -right-4 bg-background px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg z-20 transition-transform hover:scale-105 cursor-default border border-content/10">
             <span className={`w-2 h-2 rounded-full ${profile?.statusColor || 'bg-green-500'} animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]`}></span>
-            {profile?.workStatus || t("hero.badge")}
+            {localize(profile?.workStatus) || profile?.workStatus || t("hero.badge")}
           </div>
         </div>
 
@@ -133,7 +133,7 @@ function Home() {
                 <GithubIcon />
               </a>
               <a
-                href="https://www.linkedin.com/in/erick-sebasti%C3%A1n-moreno-vargas-67a780259/"
+                href={profile?.linkedinUrl || "https://www.linkedin.com/in/sebastian-morenov/"}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-primary transition-colors p-2 hover:bg-surface rounded-full">

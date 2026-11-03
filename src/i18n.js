@@ -14,7 +14,7 @@ const resources = {
         nightMode: "Night Mode",
       },
       hero: {
-        badge: "Looking for Internships",
+        badge: "Open to Work",
         location: "Sonora, Mexico",
         role: "Full-Stack Software Engineer",
         bioStart:
@@ -57,9 +57,13 @@ const resources = {
             title: "Backend Architecture",
             description: "I design robust and scalable server-side applications. From RESTful APIs in Spring Boot to microservices architectures, I ensure systems are secure, efficient, and easy to maintain."
           },
+          devops: {
+            title: "DevOps & Cloud Infrastructure",
+            description: "I build automated CI/CD pipelines, manage containerized environments with Docker, and configure resilient cloud infrastructure on Linux and AWS/GCP to guarantee high availability, scalability, and seamless software delivery."
+          },
           fullstack: {
-            title: "Full Stack Integration",
-            description: "I bridge the gap between frontend and backend, managing everything from database design to CI/CD pipelines and deployment. I deliver complete, end-to-end software solutions."
+            title: "DevOps & Cloud Infrastructure",
+            description: "I build automated CI/CD pipelines, manage containerized environments with Docker, and configure resilient cloud infrastructure on Linux and AWS/GCP to guarantee high availability, scalability, and seamless software delivery."
           }
         }
       },
@@ -99,7 +103,7 @@ const resources = {
         nightMode: "Modo Noche",
       },
       hero: {
-        badge: "En Busca de Prácticas",
+        badge: "Disponible para trabajar",
         location: "Sonora, México",
         role: "Ingeniero de Software Full-Stack",
         bioStart:
@@ -142,9 +146,13 @@ const resources = {
             title: "Arquitectura Backend",
             description: "Diseño aplicaciones robustas y escalables del lado del servidor. Desde APIs RESTful en Spring Boot hasta arquitecturas de microservicios, asegurando que los sistemas sean seguros, eficientes y fáciles de mantener."
           },
+          devops: {
+            title: "DevOps & Infraestructura Cloud",
+            description: "Diseño e implemento pipelines automatizados de CI/CD, entornos contenerizados con Docker y arquitecturas cloud resilientes en Linux y AWS/GCP para garantizar alta disponibilidad, escalabilidad y despliegues sin interrupciones."
+          },
           fullstack: {
-            title: "Integración Full Stack",
-            description: "Cierro la brecha entre el frontend y el backend, gestionando todo, desde el diseño de bases de datos hasta las integraciones CI/CD y el despliegue. Entrego soluciones de software completas."
+            title: "DevOps & Infraestructura Cloud",
+            description: "Diseño e implemento pipelines automatizados de CI/CD, entornos contenerizados con Docker y arquitecturas cloud resilientes en Linux y AWS/GCP para garantizar alta disponibilidad, escalabilidad y despliegues sin interrupciones."
           }
         }
       },

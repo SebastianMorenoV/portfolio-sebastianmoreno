@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Code2, Database, Layout } from 'lucide-react';
+import { Cloud, Database, Layout } from 'lucide-react';
 
 const Services = () => {
   const { t } = useTranslation();
@@ -22,9 +22,9 @@ const Services = () => {
       bgColor: 'bg-green-500/10'
     },
     {
-      icon: <Code2 className="w-10 h-10" />,
-      title: t('services.items.fullstack.title'),
-      description: t('services.items.fullstack.description'),
+      icon: <Cloud className="w-10 h-10" />,
+      title: t('services.items.devops.title'),
+      description: t('services.items.devops.description'),
       color: 'text-purple-500',
       bgColor: 'bg-purple-500/10'
     }

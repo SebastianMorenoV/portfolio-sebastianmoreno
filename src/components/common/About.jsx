@@ -41,7 +41,7 @@ const About = () => {
     {
       name: 'LinkedIn',
       icon: <LinkedinIcon className="w-8 h-8" />,
-      url: profile?.linkedinUrl || 'https://www.linkedin.com/in/erick-sebasti%C3%A1n-moreno-vargas-67a780259/',
+      url: profile?.linkedinUrl || 'https://www.linkedin.com/in/sebastian-morenov/',
       color: 'hover:text-blue-500 hover:bg-blue-500/10',
     },
     {
